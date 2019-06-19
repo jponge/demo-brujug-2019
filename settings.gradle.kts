@@ -14,4 +14,4 @@
  *
  */
 
-rootProject.name = "lavajug-19"
+rootProject.name = "brujug-19"
