@@ -27,32 +27,14 @@ public class InventoryApi extends AbstractVerticle {
 
   private final Logger logger = LoggerFactory.getLogger(InventoryApi.class);
 
+  // Port 3001 | /:tyreId | { tyreId, brand }
+
   @Override
   public void start() {
-    Router router = Router.router(vertx);
-
-    router.get("/:tyreId").handler(ctx -> {
-      String tyreId = ctx.pathParam("tyreId");
-      JsonObject response = new JsonObject()
-        .put("tyreId", tyreId)
-        .put("brand", brandFor(tyreId));
-      ctx.response()
-        .putHeader("Content-Type", "application/json")
-        .end(response.encode());
-    });
-
-    vertx.createHttpServer()
-      .requestHandler(router)
-      .listen(3001);
-  }
-
-  private String brandFor(String tyreId) {
-    return tyreId.hashCode() % 2 == 0 ? "Miecholin" : "Brie Jay Stone";
+    // TODO
   }
 
   public static void main(String[] args) {
-    Vertx
-      .vertx()
-      .deployVerticle(new InventoryApi());
+    // TODO
   }
 }
